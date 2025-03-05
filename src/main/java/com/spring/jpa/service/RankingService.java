@@ -33,18 +33,20 @@ public class RankingService {
 	}
 	
 	// findByUserId
-//	public List<RankingRes> findByUserId(Long id) throws Exception{
-//		List<Ranking> list = rankingRepository.findByUserId(id);
-////		if(list==null || list.isEmpty())
-////			throw new BoardSearchNotException("Title - getBoards 에러", "Message - 특정 회원이 작성한 글 없습니다.");
-//		return list.stream().map(RankingRes::new).collect(Collectors.toList());
-//	}
+	public List<RankingRes> findByUserId(Long id) throws Exception{
+		List<Ranking> list = rankingRepository.findByUser_UserId(id);
+//		if(list==null || list.isEmpty())
+//			throw new BoardSearchNotException("Title - getBoards 에러", "Message - 특정 회원이 작성한 글 없습니다.");
+		return list.stream().map(RankingRes::new).collect(Collectors.toList());
+	}
 	
 	// findTop3UsersByGuestHouseId
-//	public List<Object[]> findTop3UsersByGuestHouseId(Long guestHouseId) throws Exception{
-//		List<Object[]> list = rankingRepository.findTop3UsersByGuestHouseId(guestHouseId);
-//		return list;
-//	}
+	public List<RankingRes> findTop3UsersByGuestHouseId(Long guestHouseId) throws Exception {
+	    List<Ranking> rankingList = rankingRepository.findTop3UsersByGuestHouseId(guestHouseId);
+	    return rankingList.stream()
+	                      .map(RankingRes::new)
+	                      .collect(Collectors.toList());
+	}
 	
 	//deleteAllRankings()
 	@Transactional
