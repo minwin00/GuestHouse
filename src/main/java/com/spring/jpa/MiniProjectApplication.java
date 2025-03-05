@@ -62,7 +62,7 @@ public class MiniProjectApplication implements CommandLineRunner{
 //	    System.out.println("TestUser에게 쿠폰은" + result2 + "개");
 		
 		// ==== 쿠폰 테스팅 코드 끝 ===== 
-		System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
+	//	System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
 
 		
 		//UserService 테스트하기.
@@ -70,10 +70,10 @@ public class MiniProjectApplication implements CommandLineRunner{
 		//addUser 테스트하기.
 		
 		//userReq만들기 
-	//	UserReq userReq = new UserReq("Siwon", "010-xxx-xxx", "F", "");
-	//	userService.addUser(userReq);
-//		userService.findUser("yujin");
-//		userService.findUser("sohee");
+		UserReq userReq = new UserReq("Siwon", "010-xxx-xxx", "F", "");
+		userService.addUser(userReq);
+		userService.findUser("yujin");
+		userService.findUser("sohee");
 		
 		//Login 테스트하기
 //		UserLoginReq userLoginReq = new UserLoginReq("yujin", "12345");
