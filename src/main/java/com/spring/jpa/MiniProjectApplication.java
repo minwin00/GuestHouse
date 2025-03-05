@@ -48,18 +48,18 @@ public class MiniProjectApplication implements CommandLineRunner{
 		// ==== 쿠폰 테스팅 코드 끝 =====
 		
 		// 쿠폰 서비스 테스팅
-		User u1 = userRepository.findUserByName("TestUser");
-		GuestHouse g1 = guestHouseRepository.findByName("TestGuestHouse");
-	    Coupon c1 = new Coupon();
-	    c1.setUser(u1);
-	    c1.setGuesthouse(g1);
-	    c1.setDiscountRate(0.1f);
-	    couponRepository.save(c1);
-	    
-	    List<Coupon> result1 = couponRepository.findAllByUserUserId(u1.getUserId());
-	    System.out.println("TestUser에게 쿠폰은" + result1.size() + "개");
-	    Long result2 = couponRepository.countByUserUserId(u1.getUserId());
-	    System.out.println("TestUser에게 쿠폰은" + result2 + "개");
+//		User u1 = userRepository.findUserByName("TestUser");
+//		GuestHouse g1 = guestHouseRepository.findByName("TestGuestHouse");
+//	    Coupon c1 = new Coupon();
+//	    c1.setUser(u1);
+//	    c1.setGuesthouse(g1);
+//	    c1.setDiscountRate(0.1f);
+//	    couponRepository.save(c1);
+//	    
+//	    List<Coupon> result1 = couponRepository.findAllByUserUserId(u1.getUserId());
+//	    System.out.println("TestUser에게 쿠폰은" + result1.size() + "개");
+//	    Long result2 = couponRepository.countByUserUserId(u1.getUserId());
+//	    System.out.println("TestUser에게 쿠폰은" + result2 + "개");
 		
 		// ==== 쿠폰 테스팅 코드 끝 ===== 
 		System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
