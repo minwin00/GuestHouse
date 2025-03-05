@@ -40,13 +40,12 @@ public class CouponController {
     	return new ResponseEntity<>(couponService.getCouponCountByUserId(userId),HttpStatus.OK);
     }
 
-
 	
 	// 쿠폰 새로 생성 CouponReq
-//	@PostMapping("/coupons")
-//	public ResponseEntity<?> save(@RequestBody CouponReq coupon){
-//		return new ResponseEntity<>( couponService.addCoupon(coupon) ,HttpStatus.ACCEPTED  );
-//	}
+	@PostMapping("/coupons")
+	public ResponseEntity<?> save(@RequestBody CouponReq coupon){
+		return new ResponseEntity<>( couponService.addCoupon(coupon) ,HttpStatus.ACCEPTED  );
+	}
 	
 	// 쿠폰 수정
 //	@PutMapping("/coupons/{id}")
