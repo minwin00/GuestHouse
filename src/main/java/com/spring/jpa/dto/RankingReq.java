@@ -21,21 +21,17 @@ import lombok.ToString;
 @Builder
 public class RankingReq {
 	
-	
-	private long rankingId;
 	private long userId;
 	private long guestHouseId;
-	private Duration duration;
+	private long durationSeconds;	
 	private float discountRate;
 	
 	public Ranking toRanking(RankingReq rankingReq) {
 		return Ranking.builder()
-    		    .rankingId(rankingReq.getRankingId())
     		    .user(User.builder().userId(rankingReq.userId).build())
     		    .guestHouse(GuestHouse.builder().guestHouseId(rankingReq.guestHouseId).build())
-    		    .duration(rankingReq.getDuration())
+    		    .duration(Duration.ofSeconds(this.durationSeconds))  // 초를 Duration으로 변환
     		    .discountRate(rankingReq.getDiscountRate())
-    		    
                 .build();
 	}
 }
