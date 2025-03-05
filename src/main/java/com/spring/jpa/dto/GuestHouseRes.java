@@ -1,5 +1,7 @@
 package com.spring.jpa.dto;
 
+import java.util.List;
+
 import com.spring.jpa.entity.GuestHouse;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +18,7 @@ import lombok.ToString;
 @Builder
 @ToString
 public class GuestHouseRes {
+	private Long id;
 	private String name;
 	private String location;
 	private Integer price;
@@ -24,6 +27,7 @@ public class GuestHouseRes {
 	private Integer bookedRooms;
 	
 	public GuestHouseRes(GuestHouse guestHouse) {
+		id = guestHouse.getGuestHouseId();
 		name = guestHouse.getName();
 		location = guestHouse.getLocation();
 		price = guestHouse.getPrice();

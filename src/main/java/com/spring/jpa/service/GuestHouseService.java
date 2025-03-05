@@ -30,14 +30,12 @@ public class GuestHouseService {
 		GuestHouse gh = guestHouseRepository.findGuestHouseById(id);
 		return new GuestHouseRes(gh);
 	}
-	
+
 	@Transactional
-	public String getRandomGuestHouse() { // 랜덤으로 선택된 게하의 이름을 리턴
+	public GuestHouseRes getRandomGuestHouse() { // 랜덤으로 선택된 게하의 이름을 리턴
 		GuestHouse randomGuestHouse = guestHouseRepository.findRandomGuestHouse();
-		String randomGuestHouseName = randomGuestHouse.getName();
-		return randomGuestHouseName;
+		return new GuestHouseRes(randomGuestHouse);
 	}
-	
 	
 	public List<String> generateAnagrams(String name){ // 하나의 게스트 하우스를 임의로 선택하여 해당 게스트 하우스 이름으로 애너그램 30개 생성 
 		
