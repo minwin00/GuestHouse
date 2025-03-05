@@ -21,15 +21,9 @@ public class RankingService {
 	
 //	Ranking 저장하기
 	@Transactional
-	public Ranking addRanking(RankingReq rankingReq) {
-		System.out.println("RankingReq==>"+rankingReq);
-		
-		Ranking ranking=rankingReq.toRanking(rankingReq); //DTO--> Entity로 변경
-		
-		System.out.println("toBoard==>"+ranking);
-		
-		//save 하고나서 다시 Entity를 반환한다..
-		return rankingRepository.save(ranking);
+	public RankingRes addRanking(RankingReq rankingReq) {
+		Ranking ranking=rankingReq.toRanking(rankingReq); // DTO--> Entity로 변경
+		return new RankingRes(rankingRepository.save(ranking));
 	}
 	
 	// findByUserId

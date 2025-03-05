@@ -29,10 +29,11 @@ public class RankingController {
     final RankingService rankingService;
     
     // 랭킹 생성
-//    @PostMapping("/addRanking")
-//    public ResponseEntity<?> addRanking(@RequestBody RankingReq coupon){
-//    	return new ResponseEntity<>( rankingService.addCoupon(coupon) ,HttpStatus.ACCEPTED  );
-//    }
+    @PostMapping("/addRanking")
+    @Operation(summary = "랭킹 기록 추가", description = "새로운 랭킹 정보를 추가합니다.")
+    public ResponseEntity<?> addRanking(@RequestBody RankingReq ranking){
+    	return new ResponseEntity<>( rankingService.addRanking(ranking) ,HttpStatus.ACCEPTED  );
+    }
     
 
     //특정 게스트 하우스의 TOP3 랭킹 조회
