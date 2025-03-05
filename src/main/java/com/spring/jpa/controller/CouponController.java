@@ -43,6 +43,7 @@ public class CouponController {
 	
 	// 쿠폰 새로 생성 CouponReq
 	@PostMapping("/coupons")
+	@Operation(summary = "새로운 쿠폰 생성", description = "새로운 쿠폰을 추가합니다.")
 	public ResponseEntity<?> save(@RequestBody CouponReq coupon){
 		return new ResponseEntity<>( couponService.addCoupon(coupon) ,HttpStatus.ACCEPTED  );
 	}
