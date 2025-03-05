@@ -3,6 +3,7 @@ package com.spring.jpa.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.jpa.dto.UserLoginReq;
 import com.spring.jpa.dto.UserReq;
 import com.spring.jpa.entity.User;
+import com.spring.jpa.exception.UserException;
 import com.spring.jpa.service.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,6 +42,7 @@ public class UserController {
 	@Operation(summary = "로그인", description = "입력 받은 ID와 비밀번호를 통해 로그인을 시도합니다.")
 	public ResponseEntity<?> signIn(@RequestBody UserLoginReq userLoginReq) throws Exception{
 		//userService.logInUser(userLoginReq);
+
 		return new ResponseEntity<>(userService.logInUser(userLoginReq), HttpStatus.OK);
 	}
 	
@@ -48,5 +51,10 @@ public class UserController {
 	@Operation(summary = "사용자 검색", description = "사용자의 이름으로 사용자 정보를 반환합니다.")
 	public ResponseEntity<?> getUser(@PathVariable String name) throws Exception{
 		return new ResponseEntity<>(userService.findUser(name), HttpStatus.OK);
+	}
+	
+	@ExceptionHandler(UserException.class)
+	public ResponseEntity<String> handleUserException(UserException ex){
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
 	}
 }
