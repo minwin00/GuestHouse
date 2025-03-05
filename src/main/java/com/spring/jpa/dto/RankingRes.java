@@ -22,14 +22,14 @@ public class RankingRes {
 	private long rankingId;
 	private UserRes user;
 	private GuestHouseRes guestHouse;
-	private String duration;
+	private Long durationSeconds;
 	private float discountRate;
 
 	public RankingRes(Ranking ranking) {
 		rankingId = ranking.getRankingId();
 		user=new UserRes(ranking.getUser());
         guestHouse=new GuestHouseRes(ranking.getGuestHouse());
-        duration=ranking.getDuration().toString();
+        durationSeconds= ranking.getDuration().getSeconds(); 
         discountRate=ranking.getDiscountRate();
 	}
 }
