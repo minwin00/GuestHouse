@@ -14,23 +14,28 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.jpa.dto.CouponReq;
 import com.spring.jpa.service.CouponService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @CrossOrigin(origins= {"*"}, maxAge = 6000)
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "Coupon Controller", description = "제공되는 쿠폰과 관련된 Controller")
 public class CouponController {
 	
 	final CouponService couponService;
 	
 	// UserId를 인자로 받아서, 그 유저가 가지고 있는 모든 쿠폰 목록을 List<CouponRes>로 반환
     @GetMapping("/coupons/getCouponsByUserId/{userId}")
+    @Operation(summary = "보유 쿠폰 조회", description = "ID로 사용자가 보유한 쿠폰을 모두 조회합니다.")
     public ResponseEntity<?> getCouponsByUserId(@PathVariable Long userId) throws Exception{
     	return new ResponseEntity<>(couponService.getCouponsByUserId(userId),HttpStatus.OK);
     }
     
 	// UserId를 인자로 받아서, 그 유저가 가지고 있는 모든 쿠폰의 갯수를 반환
     @GetMapping("/coupons/getCouponCountByUserId/{userId}")
+    @Operation(summary = "보유 쿠폰 개수 조회", description = "ID로 사용자가 보유한 쿠폰의 개수를 조회합니다.")
     public ResponseEntity<?> getCouponCountByUserId(@PathVariable Long userId) throws Exception{
     	return new ResponseEntity<>(couponService.getCouponCountByUserId(userId),HttpStatus.OK);
     }
