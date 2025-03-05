@@ -39,7 +39,7 @@ public class UserService {
     }
 
     // 2. 이름으로 유저 찾기 (findUser)
-    public UserRes findUser(String name) {
+    public UserRes findUser(String name) { 
         try {
             User user = userRepository.findUserByName(name);
 

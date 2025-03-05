@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin(origins= {"*"}, maxAge=6000)
 @RestController
 @RequiredArgsConstructor
-@Tag(name = "User Controller", description = "사용자 관련 API")
+@Tag(name = "User Controller", description = "사용자 관련 Controller")
 public class UserController {
 	
 	final UserService userService;
