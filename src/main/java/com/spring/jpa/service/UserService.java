@@ -20,7 +20,19 @@ public class UserService {
     // 1. 유저 추가해주기(회원가입) (addUser)
     @Transactional
     public User addUser(UserReq userReq) {
-        try {
+    	System.out.println("UserReq==>" + userReq);
+        User user = userReq.toUser(userReq);
+
+        if (userRepository.checkDuplicateName(user.getUserName()) >= 1)
+            throw new UserException("사용할 수 없는 닉네임입니다");
+
+        if (user.getPassWord().equals(""))
+            throw new UserException("비밀번호를 입력하시오");
+
+        System.out.println("toUser==>" + user);
+        return userRepository.save(user);
+    	
+     /*   try {
             System.out.println("UserReq==>" + userReq);
             User user = userReq.toUser(userReq);
 
@@ -35,7 +47,7 @@ public class UserService {
         } catch (UserException e) {
             System.out.println("예외 발생 (회원가입 실패): " + e.getMessage());
             return null;  // 예외 발생 시 null 반환
-        }
+        }*/
     }
 
     // 2. 이름으로 유저 찾기 (findUser)

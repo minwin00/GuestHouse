@@ -19,9 +19,11 @@ public class UserRes {
 //	회원정보 일치확인 : name, password
 	private String name;
 	private String passWord;
+	private Long id;
 	
 	public UserRes(User user) {
 		name = user.getUserName();
 		passWord = user.getPassWord();	
+		id = user.getUserId();
 	}
 }

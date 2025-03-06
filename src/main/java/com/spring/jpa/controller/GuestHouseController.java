@@ -25,7 +25,6 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin(origins= {"*"}, maxAge=6000)
 @RequiredArgsConstructor
 @Tag(name = "GuestHouse Controller", description = "게스트 하우스 정보와 관련된 Controller")
-
 public class GuestHouseController {
 	
 	final GuestHouseService guestHouseService;
