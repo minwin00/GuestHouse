@@ -1,6 +1,7 @@
 package com.spring.jpa.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -42,6 +43,7 @@ public class GuestHouseService {
 		//String randomGuestHouseName = getRandomGuestHouse();
 		List<String> anagrams = getShuffledNamesExceptionFirstAndLastChar(30, name);
 		
+		Collections.shuffle(anagrams);
 		return anagrams;
 	}
 	

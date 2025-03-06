@@ -55,21 +55,34 @@ public class UserService {
     }
 
     // 3. 유저 Login (logInUser)
+//    public UserRes logInUser(UserLoginReq userLoginReq) {
+//        try {
+//            User user = userRepository.findUserByName(userLoginReq.getName());
+//
+//            if (user == null)
+//                throw new UserException("해당 이름의 사용자가 없습니다");
+//
+//            if (!user.getPassWord().equals(userLoginReq.getPassWord()))
+//                throw new UserException("비밀번호가 일치하지 않습니다");
+//
+//            System.out.println(user.toString() + " 로그인 성공");
+//            return new UserRes(user);
+//        } catch (UserException e) {
+//            System.out.println("예외 발생 (로그인 실패): " + e.getMessage());
+//            return null;  // 예외 발생 시 null 반환
+//        }
+//    }
     public UserRes logInUser(UserLoginReq userLoginReq) {
-        try {
-            User user = userRepository.findUserByName(userLoginReq.getName());
+        User user = userRepository.findUserByName(userLoginReq.getName());
 
-            if (user == null)
-                throw new UserException("해당 이름의 사용자가 없습니다");
+        if (user == null)
+            throw new UserException("해당 이름의 사용자가 없습니다"); // 예외 발생
 
-            if (!user.getPassWord().equals(userLoginReq.getPassWord()))
-                throw new UserException("비밀번호가 일치하지 않습니다");
+        if (!user.getPassWord().equals(userLoginReq.getPassWord()))
+            throw new UserException("비밀번호가 일치하지 않습니다"); // 예외 발생
 
-            System.out.println(user.toString() + " 로그인 성공");
-            return new UserRes(user);
-        } catch (UserException e) {
-            System.out.println("예외 발생 (로그인 실패): " + e.getMessage());
-            return null;  // 예외 발생 시 null 반환
-        }
+        System.out.println(user.toString() + " 로그인 성공");
+        return new UserRes(user);
     }
+
 }
