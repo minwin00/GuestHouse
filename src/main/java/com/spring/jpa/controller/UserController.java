@@ -31,10 +31,12 @@ public class UserController {
 	//회원가입 페이지
 	@PostMapping("/users")
 	@Operation(summary = "회원 가입", description = "회원 가입을 수행합니다.")
-	public String signUp(@RequestBody UserReq userReq) throws Exception {
+//	public String signUp(@RequestBody UserReq userReq) throws Exception {
+	public ResponseEntity<?> signUp(@RequestBody UserReq userReq) throws Exception {
 		//왜 custom에서는 req가 아닌 custom으로 했지? entity로?
-		userService.addUser(userReq);
-		return userReq.toString()+ " 회원가입 OK :) ";
+		//userService.addUser(userReq);
+		//return userReq.toString()+ " 회원가입 OK :) ";
+		return new ResponseEntity<>(userService.addUser(userReq), HttpStatus.OK);
 	}
 	
 	//로그인 페이지

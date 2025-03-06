@@ -70,8 +70,8 @@ public class MiniProjectApplication implements CommandLineRunner{
 		//addUser 테스트하기.
 		
 		//userReq만들기 
-		UserReq userReq = new UserReq("lyj5341@naver.com", "010-xxx-xxx", "F", "12345678");
-		userService.addUser(userReq);
+	//	UserReq userReq = new UserReq("lyj5341@naver.com", "010-xxx-xxx", "F", "12345678");
+	//	userService.addUser(userReq);
 //		userService.findUser("yujin");
 //		userService.findUser("sohee");
 		
