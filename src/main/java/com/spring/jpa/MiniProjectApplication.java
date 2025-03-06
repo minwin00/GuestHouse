@@ -45,39 +45,90 @@ public class MiniProjectApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		// ==== 쿠폰 테스팅 코드 끝 =====
+		//===============GUEST HOUSE 생성===============
+		GuestHouse gh1 = new GuestHouse();
+		gh1.setName("산들바람");
+		gh1.setCapacity(10);
+		gh1.setLocation("경기도");
+		gh1.setPrice(100000);
+		guestHouseRepository.save(gh1);
 		
-		// 쿠폰 서비스 테스팅
-//		User u1 = userRepository.findUserByName("TestUser");
-//		GuestHouse g1 = guestHouseRepository.findByName("TestGuestHouse");
-//	    Coupon c1 = new Coupon();
-//	    c1.setUser(u1);
-//	    c1.setGuesthouse(g1);
-//	    c1.setDiscountRate(0.1f);
-//	    couponRepository.save(c1);
-//	    
-//	    List<Coupon> result1 = couponRepository.findAllByUserUserId(u1.getUserId());
-//	    System.out.println("TestUser에게 쿠폰은" + result1.size() + "개");
-//	    Long result2 = couponRepository.countByUserUserId(u1.getUserId());
-//	    System.out.println("TestUser에게 쿠폰은" + result2 + "개");
+		GuestHouse gh2 = new GuestHouse();
+		gh2.setName("파라다이스");
+		gh2.setCapacity(15);
+		gh2.setLocation("강원도");
+		gh2.setPrice(150000);
+		guestHouseRepository.save(gh2);
 		
-		// ==== 쿠폰 테스팅 코드 끝 ===== 
-	//	System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
-
+		GuestHouse gh3 = new GuestHouse();
+		gh3.setName("꽃과동산");
+		gh3.setCapacity(20);
+		gh3.setLocation("경상도");
+		gh3.setPrice(170000);
+		guestHouseRepository.save(gh3);
 		
-		//UserService 테스트하기.
+		GuestHouse gh4 = new GuestHouse();
+		gh4.setName("행복한 게스트하우스");
+		gh4.setCapacity(20);
+		gh4.setLocation("경기도");
+		gh4.setPrice(120000);
+		guestHouseRepository.save(gh4);
 		
-		//addUser 테스트하기.
+		GuestHouse gh5 = new GuestHouse();
+		gh5.setName("최고의 게스트하우스");
+		gh5.setCapacity(10);
+		gh5.setLocation("경기도");
+		gh5.setPrice(150000);
+		guestHouseRepository.save(gh5);
 		
-		//userReq만들기 
-		UserReq userReq = new UserReq("lyj5341@naver.com", "010-xxx-xxx", "F", "12345678");
-		userService.addUser(userReq);
-//		userService.findUser("yujin");
-//		userService.findUser("sohee");
+		GuestHouse gh6 = new GuestHouse();
+		gh6.setName("아름다운 게스트하우스");
+		gh6.setCapacity(30);
+		gh6.setLocation("강원도");
+		gh6.setPrice(250000);
+		guestHouseRepository.save(gh6);
 		
-		//Login 테스트하기
-//		UserLoginReq userLoginReq = new UserLoginReq("yujin", "12345");
-//		userService.logInUser(userLoginReq);
+		GuestHouse gh7 = new GuestHouse();
+		gh7.setName("베스트 게스트하우스");
+		gh7.setCapacity(30);
+		gh7.setLocation("전라도");
+		gh7.setPrice(200000);
+		guestHouseRepository.save(gh7);
+		
+		GuestHouse gh8 = new GuestHouse();
+		gh8.setName("서진이네 게스트하우스");
+		gh8.setCapacity(20);
+		gh8.setLocation("전라북도");
+		gh8.setPrice(280000);
+		guestHouseRepository.save(gh8);
+		
+		GuestHouse gh9 = new GuestHouse();
+		gh9.setName("딘's 게스트하우스");
+		gh9.setCapacity(20);
+		gh9.setLocation("경기도");
+		gh9.setPrice(150000);
+		guestHouseRepository.save(gh9);
+		
+		GuestHouse gh10 = new GuestHouse();
+		gh10.setName("헤일리의 게스트하우스");
+		gh10.setCapacity(30);
+		gh10.setLocation("경기도");
+		gh10.setPrice(250000);
+		guestHouseRepository.save(gh10);
+		
+		GuestHouse gh11 = new GuestHouse();
+		gh11.setName("유진이네 게스트하우스");
+		gh11.setCapacity(15);
+		gh11.setLocation("경기도");
+		gh11.setPrice(200000);
+		guestHouseRepository.save(gh11);
+		
+		GuestHouse gh12 = new GuestHouse();
+		gh12.setName("연승 게스트하우스");
+		gh12.setCapacity(30);
+		gh12.setLocation("경기도");
+		gh12.setPrice(250000);
+		guestHouseRepository.save(gh12);
 	}
 
 	public static void main(String[] args) {

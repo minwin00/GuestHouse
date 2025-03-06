@@ -59,5 +59,4 @@ public class GuestHouseController {
 		GuestHouseRes gh = guestHouseService.findGuestHouseById(id);
 		return new ResponseEntity<>(gh, HttpStatus.OK);
 	}
-	
 }
