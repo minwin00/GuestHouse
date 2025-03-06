@@ -41,7 +41,7 @@ public class GuestHouseService {
 	public List<String> generateAnagrams(String name){ // 하나의 게스트 하우스를 임의로 선택하여 해당 게스트 하우스 이름으로 애너그램 30개 생성 
 		
 		//String randomGuestHouseName = getRandomGuestHouse();
-		List<String> anagrams = getShuffledNamesExceptionFirstAndLastChar(30, name);
+		List<String> anagrams = getShuffledNamesExceptionFirstAndLastChar(12, name);
 		
 		Collections.shuffle(anagrams);
 		return anagrams;
